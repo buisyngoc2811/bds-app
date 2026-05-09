@@ -16,13 +16,13 @@
 ════════════════════════════════════════════ -->
 <script>
   const FIREBASE_CONFIG = {
-    apiKey:            "THAY_API_KEY_CUA_BAN",
-    authDomain:        "THAY_PROJECT_ID.firebaseapp.com",
-    databaseURL:       "https://THAY_PROJECT_ID-default-rtdb.asia-southeast1.firebasedatabase.app",
-    projectId:         "THAY_PROJECT_ID",
-    storageBucket:     "THAY_PROJECT_ID.appspot.com",
-    messagingSenderId: "THAY_MESSAGING_SENDER_ID",
-    appId:             "THAY_APP_ID"
+    apiKey:            "AIzaSyA-fdfgrrYRfG73OlNTYhPwDxjohNVRDwY",
+    authDomain:        "bds-gia-dinh.firebaseapp.com",
+    databaseURL:       "https://bds-gia-dinh-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId:         "bds-gia-dinh",
+    storageBucket:     "bds-gia-dinh.appspot.com",
+    messagingSenderId: "1062316822098",
+    appId:             "1:1062316822098:web:7de587073dec882c4a828b"
   };
 </script>
 
@@ -877,7 +877,9 @@ function renderAll(){ renderStats(); renderDash(); renderBDS(); renderAuctions()
 
 // ── Boot ──
 const savedCfg = loadConfig();
-if(savedCfg && savedCfg.apiKey && savedCfg.apiKey !== 'THAY_API_KEY_CUA_BAN'){
+if (typeof FIREBASE_CONFIG !== 'undefined' && FIREBASE_CONFIG.apiKey && FIREBASE_CONFIG.apiKey !== 'THAY_API_KEY_CUA_BAN') {
+  startApp(FIREBASE_CONFIG);
+} else if(savedCfg && savedCfg.apiKey && savedCfg.apiKey !== 'THAY_API_KEY_CUA_BAN'){
   startApp(savedCfg);
 } else {
   document.getElementById('config-screen').classList.add('show');
